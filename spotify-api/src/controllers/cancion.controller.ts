@@ -43,3 +43,20 @@ export async function eliminarCancion(req: Request, res: Response) {
         cancionEliminada
     })
 }
+
+export async function actualizarCancion(req: Request, res: Response) {
+    const { id } = req.params;
+    const { numero, tituloCancion, duracion, album, urlCancion } = req.body;
+    const cancionActualizada = await Cancion.findByIdAndUpdate(id, {
+        numero,
+        tituloCancion,
+        duracion,
+        album,
+        urlCancion
+    });
+    return res.json({
+        message: "Cancion Actualizada",
+        cancionActualizada
+    })
+    
+}

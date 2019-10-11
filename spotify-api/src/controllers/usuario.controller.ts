@@ -46,3 +46,21 @@ export async function eliminarUsuario(req: Request, res: Response) {
         usuarioEliminado
     })
 } 
+
+export async function actualizarUsuario(req: Request, res: Response) {
+    const { id } = req.params;
+    const { nombre, apellido, correo, contransena, rol, rutaImagen } = req.body;
+    const usuarioActualizado = await Usuario.findByIdAndUpdate(id, {
+        nombre,
+        apellido,
+        correo,
+        contransena,
+        rol,
+        rutaImagen
+    });
+
+    return res.json({
+        message: "Usuario Actualizado",
+        usuarioActualizado
+    })
+}

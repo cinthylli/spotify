@@ -44,3 +44,19 @@ export async function eliminarAlbum(req: Request, res: Response) {
         albumEliminado
     });
 }
+
+export async function actualizarAlbum(req: Request, res: Response) {
+    const { id } = req.params;
+    const { titulo, descripcion, anio, artista } = req.body;
+    const albumActualizado = await Album.findByIdAndUpdate(id, {
+        titulo,
+        descripcion,
+        anio,
+        artista
+    });
+
+    return res.json({
+        message: "Album Actualizado",
+        albumActualizado
+    })
+}

@@ -43,3 +43,16 @@ export async function eliminarArtista(req: Request, res: Response) {
         artistaEliminado
     })
 }
+
+export async function actualizarArtista(req: Request, res: Response) {
+    const { id } = req.params;
+    const { nombre, descripcion } = req.body;
+    const artistaActualizado = await Artista.findByIdAndUpdate(id, {
+        nombre,
+        descripcion
+    });
+    return res.json({
+        message: "Artista Actualizado",
+        artistaActualizado
+    })
+}
