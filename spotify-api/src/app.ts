@@ -1,10 +1,11 @@
-import express from "express";
+import express, {Application} from "express";
 import morgan from "morgan";
 import indexRoutes from "./routes/index"
 import path from "path";
 import cors from "cors";
 
-const app = express();
+//Inicializacion
+const app: Application = express();
 
 //Configuraciones
 app.set('port', process.env.PORT || 4000);
