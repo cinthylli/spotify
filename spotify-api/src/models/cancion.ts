@@ -14,7 +14,7 @@ export interface iCancion extends Document {
     tituloCancion: string;
     duracion: string;
     urlCancion: string;
-    album: iAlbum['_id'];
+    album?: iAlbum['_id'];
 }
 
 export default model<iCancion>('Cancion', CancionSchema);

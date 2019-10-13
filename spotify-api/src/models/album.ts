@@ -15,7 +15,7 @@ export interface iAlbum extends Document{
     descripcion: string;
     anio: Number;
     rutaImagen: string;
-    artista: iArtista['_id'];
+    artista?: iArtista['_id'];
 }
 
 export default model<iAlbum>('Album', AlbumSchema);

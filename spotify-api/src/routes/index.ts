@@ -1,13 +1,11 @@
 import { Router } from 'express';
+const router = Router();
+// Valida si va a subir una imagen
+import multer from "../libs/multer";
 import { crearUsuario, obtenerUsuario, obtenerUsuarios } from '../controllers/usuario.controller';
 import { crearAlbum, obtenerAlbum, obtenerAlbums } from '../controllers/album.controller';
 import { crearArtista, obtenerArtista, obtenerArtistas } from "../controllers/artista.controller";
 import { crearCancion, obtenerCancion, obtenerCanciones } from '../controllers/cancion.controller';
-// Valida si va a subir una imagen
-import multer from "../libs/multer";
-
-const router = Router();
-
 
 router.route('/usuario')
     .post( multer.single('rutaImagen') , crearUsuario)

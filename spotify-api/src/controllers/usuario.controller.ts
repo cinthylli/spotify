@@ -5,12 +5,12 @@ export async function crearUsuario(req: Request, res: Response) {
     console.log('Creando usuario')
     console.log(req.body)
 
-    const { nombre, apellido, correo, contransena, rol, rutaImagen} = req.body;
+    const { nombre, apellido, correo, contrasena, rol, rutaImagen} = req.body;
     const nuevoUsuario = {
         nombre: nombre,
         apellido: apellido,
         correo: correo,
-        contrasena: contransena,
+        contrasena: contrasena,
         rol: rol,
         rutaImagen: rutaImagen
     }
