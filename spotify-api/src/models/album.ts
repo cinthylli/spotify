@@ -1,7 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import { iArtista } from "./artista";
 
-
 var AlbumSchema = new Schema({
     titulo: String,
     descripcion: String,
@@ -13,7 +12,7 @@ var AlbumSchema = new Schema({
 export interface iAlbum extends Document{
     titulo: string;
     descripcion: string;
-    anio: Number;
+    anio: number;
     rutaImagen: string;
     artista?: iArtista['_id'];
 }

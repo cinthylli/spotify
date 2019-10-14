@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-import Artista from "../models/artista";
+import fs from 'fs-extra';
+
+//Modelos
+import Artista, {iArtista} from "../models/artista";
 
 export async function crearArtista(req: Request, res: Response) {
     console.log("Guardando artista")
@@ -22,11 +25,12 @@ export async function crearArtista(req: Request, res: Response) {
     })
 }
 
-export async function obtenerArtistas(req: Request, res: Response) {
-    const artistas = await Artista.find()
-    console.log("Exito - Obtener artista")
+export async function obtenerArtistas(req: Request, res: Response): Promise<Response> {
+    console.log("Obteniendo artista");
+    const artistas = await Artista.find();
+    console.log("Exito - Obtener artista");
     return res.json(artistas);
-}
+};
 
 export async function obtenerArtista(req: Request, res: Response) {
     const id = req.params.id;
@@ -42,7 +46,7 @@ export async function eliminarArtista(req: Request, res: Response) {
         message: "Artista Eliminado",
         artistaEliminado
     })
-}
+};
 
 export async function actualizarArtista(req: Request, res: Response) {
     const { id } = req.params;
@@ -55,4 +59,4 @@ export async function actualizarArtista(req: Request, res: Response) {
         message: "Artista Actualizado",
         artistaActualizado
     })
-}
+};
